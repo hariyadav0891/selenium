@@ -1,0 +1,11 @@
+@AfterSuite
+	public void tiredown() {
+		driver.close();
+		try {
+			Runtime.getRuntime()
+					.exec(new String[] { "wscript.exe", System.getProperty("user.dir") + "/SendEmail.vbs" });
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
+	}
